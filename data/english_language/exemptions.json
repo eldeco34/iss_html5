@@ -1,0 +1,31 @@
+{
+  "sectionTitle": "Exemptions",
+  "sectionDescription": "Conditions for exemption from English language requirements",
+  "rules": [
+      {
+          "ruleCode": "EL1.1(a)",
+          "ruleDescription": "Age 65+ exemption",
+          "requirements": ["Applicant must be aged 65 years or over"]
+      },
+      {
+          "ruleCode": "EL1.1(b)",
+          "ruleDescription": "Minor exemption",
+          "requirements": ["Applicant must be under 18 years old"]
+      },
+      {
+          "ruleCode": "EL1.1(c)",
+          "ruleDescription": "Disability exemption",
+          "requirements": ["Medical evidence of physical/mental condition preventing compliance"]
+      },
+      {
+          "ruleCode": "EL1.1(d)",
+          "ruleDescription": "Long-term resident exemption",
+          "requirements": [
+              "15 years continuous UK residency",
+              "A2 CEFR or equivalent qualification",
+              "75+ guided learning hours certification",
+              "Teacher confirmation of B1 unattainability"
+          ]
+      }
+  ]
+}

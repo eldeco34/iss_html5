@@ -1,0 +1,23 @@
+{
+    "sectionTitle": "Age Requirements",
+    "sectionDescription": "Rules regarding applicant age",
+    "rules": [
+        {
+            "ruleCode": "CHI 1.1",
+            "ruleDescription": "Base age requirement",
+            "requirements": [
+                "Must be under 18 years old",
+                "Exceptional cases in CHI 1.2"
+            ]
+        },
+        {
+            "ruleCode": "CHI 1.2",
+            "ruleDescription": "Age exception for prior dependents",
+            "requirements": [
+                "Previous grant as dependent child",
+                "1.2 A Their entry clearance/permission is valid or expired ≤14 days before application (overstaying under paragraph 39E is disregarded).",
+                "1.2 B They are applying under Appendix Bereaved Partner or Appendix Victim of Domestic Abuse."
+            ]
+        }
+    ]
+}

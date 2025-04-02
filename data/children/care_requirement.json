@@ -1,0 +1,14 @@
+{
+    "sectionTitle": "Care Requirement",
+    "sectionDescription": "Standards for child accommodation",
+    "rules": [
+        {
+            "ruleCode": "CHI 2.1",
+            "ruleDescription": "Under-18 care arrangements",
+            "requirements": [
+                "Suitable UK accommodation",
+                "Compliance with UK child welfare laws"
+            ]
+        }
+    ]
+}

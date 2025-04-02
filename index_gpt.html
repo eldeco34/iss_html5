@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exemption Check Flowchart</title>
+    <style>
+      .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 3px;
+      }
+      .node text {
+        font: 12px sans-serif;
+      }
+      .link {
+        fill: none;
+        stroke: #ccc;
+        stroke-width: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+      // Hierarchical data representing the flowchart
+      const data = {
+        "name": "Settlement Application",
+        "children": [
+          {
+            "name": "Applicant aged 65 or over?",
+            "children": [
+              {"name": "Exempt from English Language Requirement"}
+            ]
+          },
+          {
+            "name": "Applicant not aged 65 or over",
+            "children": [
+              {
+                "name": "Applicant aged under 18?",
+                "children": [
+                  {"name": "Exempt from English Language Requirement"}
+                ]
+              },
+              {
+                "name": "Applicant aged 18 or over",
+                "children": [
+                  {
+                    "name": "Disability prevents meeting requirement?",
+                    "children": [
+                      {"name": "Exempt from English Language Requirement"}
+                    ]
+                  },
+                  {
+                    "name": "No Disability",
+                    "children": [
+                      {
+                        "name": "Partner/Parent/Dependent (aged >18) with:\n15 years UK presence\nA2/ESOL Entry Level 2 or SCQF level 3 qualification\n75 guided learning hours confirmed by a teacher?",
+                        "children": [
+                          {"name": "Exempt from English Language Requirement"},
+                          {"name": "English Language Requirement Must be Met"}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
+      // Set dimensions and margins for the diagram
+      const width = 800;
+      const height = 600;
+      const margin = { top: 20, right: 90, bottom: 30, left: 90 };
+
+      // Append SVG object to a dedicated container
+      const svg = d3.select("#chart")
+          .append("svg")
+          .attr("width", width)
+          .attr("height", height)
+          .append("g")
+          .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      // Create the tree layout
+      const treemap = d3.tree().size([height - margin.top - margin.bottom, width - margin.left - margin.right]);
+      const root = d3.hierarchy(data, d => d.children);
+      treemap(root);
+
+      // Add links between nodes
+      svg.selectAll(".link")
+        .data(root.links())
+        .enter().append("path")
+          .attr("class", "link")
+          .attr("d", d3.linkHorizontal()
+              .x(d => d.y)
+              .y(d => d.x)
+          );
+
+      // Add nodes
+      const node = svg.selectAll(".node")
+          .data(root.descendants())
+          .enter().append("g")
+          .attr("class", "node")
+          .attr("transform", d => `translate(${d.y},${d.x})`);
+
+      node.append("circle")
+          .attr("r", 10);
+
+      node.append("text")
+          .attr("dy", ".35em")
+          .attr("x", d => d.children ? -15 : 15)
+          .style("text-anchor", d => d.children ? "end" : "start")
+          .text(d => d.data.name);
+    </script>
+  </body>
+</html>

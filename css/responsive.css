@@ -1,0 +1,49 @@
+/* Mobile First Approach */
+.visualization-container {
+    width: 95%;
+    max-width: 100%;
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 768px) {
+    :root {
+        --base-font-size: 1.1rem;
+        --heading-font-size: 2.5rem;
+    }
+    
+    .visualization-container {
+        width: 90%;
+        max-width: 1400px;
+    }
+    
+    .node circle {
+        r: 8;
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 767px) {
+    :root {
+        --base-font-size: 0.9rem;
+        --heading-font-size: 1.5rem;
+    }
+    
+    .visualization-container {
+        padding: 1rem;
+    }
+    
+    .node circle {
+        r: 6;
+    }
+    
+    .tooltip {
+        max-width: 200px;
+        font-size: 0.8rem;
+    }
+    .back-button {
+        right: 10px;
+        top: -35px;
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+}

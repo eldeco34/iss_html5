@@ -1,0 +1,40 @@
+{
+  "sectionTitle": "Student Provisions",
+  "sectionDescription": "Special provisions for Student visa applicants",
+  "rules": [
+      {
+          "ruleCode": "EL8.1",
+          "ruleDescription": "Degree-level sponsorship",
+          "requirements": [
+              "Course at degree level or above",
+              "Sponsorship from compliant higher education provider",
+              "CAS confirmation of assessment"
+          ]
+      },
+      {
+          "ruleCode": "EL8.2",
+          "ruleDescription": "B2 CEFR Requirement",
+          "requirements": [
+              "B2 level in all components",
+              "Equivalent to CEFR standards"
+          ]
+      },
+      {
+          "ruleCode": "EL8.3",
+          "ruleDescription": "Disability accommodations",
+          "requirements": [
+              "Test provider exemption confirmation",
+              "Sponsor confirmation of sufficient ability"
+          ]
+      },
+      {
+          "ruleCode": "EL8.4",
+          "ruleDescription": "Short-term study abroad",
+          "requirements": [
+              "6-month maximum program duration",
+              "Part of USA degree-level course",
+              "Ecctis academic qualification confirmation"
+          ]
+      }
+  ]
+}

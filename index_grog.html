@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive D3.js Tree Diagram</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+        }
+        .node circle {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+            cursor: pointer; /* Indicates clickable nodes */
+        }
+        .node.expanded circle {
+            fill: #ffcccc; /* Highlights expanded nodes */
+        }
+        .node text {
+            font: 12px sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Sample decision tree data (replace with your own)
+        const data = {
+            "name": "Start",
+            "children": [
+                {
+                    "name": "Do you need to meet the English language requirement?",
+                    "children": [
+                        {"name": "No", "children": [{"name": "Proceed without further action"}]},
+                        {
+                            "name": "Yes",
+                            "children": [
+                                {
+                                    "name": "Check for exemptions",
+                                    "children": [
+                                        {"name": "Exempt", "children": [{"name": "Proceed without meeting the requirement"}]},
+                                        {"name": "Not exempt", "children": [{"name": "Choose a method to meet the requirement"}]}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Set initial dimensions
+        const width = 800;
+        const root = d3.hierarchy(data);
+        const depth = d3.max(root.descendants(), d => d.depth);
+        const height = depth * 100; // Dynamic height based on tree depth
+
+        // Create SVG container
+        const svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create a group for zoom/pan
+        const g = svg.append("g");
+
+        // Add zoom behavior
+        svg.call(d3.zoom()
+            .extent([[0, 0], [width, height]])
+            .scaleExtent([0.1, 2]) // Zoom range: 10% to 200%
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+            }));
+
+        // Define tree layout
+        const treeLayout = d3.tree().size([width, height]);
+
+        // Initialize nodes (collapse all except root)
+        root.descendants().forEach((d, i) => {
+            d.id = i;
+            d._children = d.children; // Store children for toggling
+            if (i > 0) d.children = null; // Collapse all except root
+        });
+
+        // Function to update the diagram
+        function update() {
+            treeLayout(root); // Compute node positions
+
+            // Draw links
+            const links = g.selectAll(".link")
+                .data(root.links())
+                .join("path")
+                .attr("class", "link")
+                .attr("d", d3.linkVertical()
+                    .x(d => d.x)
+                    .y(d => d.y));
+
+            // Draw nodes
+            const nodes = g.selectAll(".node")
+                .data(root.descendants())
+                .join("g")
+                .attr("class", d => d.children ? "node expanded" : "node")
+                .attr("transform", d => `translate(${d.x},${d.y})`);
+
+            // Add circles to nodes
+            nodes.append("circle")
+                .attr("r", 5);
+
+            // Add text labels
+            nodes.append("text")
+                .attr("dy", 3)
+                .attr("x", d => d.children ? -8 : 8)
+                .style("text-anchor", d => d.children ? "end" : "start")
+                .text(d => d.data.name);
+
+            // Add tooltips
+            nodes.append("title")
+                .text(d => d.data.name);
+
+            // Add click event for expand/collapse
+            nodes.on("click", (event, d) => {
+                if (d.children) {
+                    d._children = d.children;
+                    d.children = null; // Collapse
+                } else {
+                    d.children = d._children;
+                    d._children = null; // Expand
+                }
+                update(); // Redraw the diagram
+            });
+        }
+
+        // Initial render
+        update();
+    </script>
+</body>
+</html>

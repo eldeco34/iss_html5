@@ -1,0 +1,6 @@
+{
+    "endpoints": [
+        "rule_set1.json",
+        "rule_set2.json"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+  "sectionTitle": "Meeting Requirements",
+  "sectionDescription": "Approved methods to satisfy English language requirements",
+  "rules": [
+      {
+          "ruleCode": "EL5",
+          "ruleDescription": "Academic Qualifications",
+          "requirements": [
+              "UK-awarded bachelor's/master's/doctorate",
+              "Degree from majority-English-speaking country (except Canada)",
+              "English-taught degree equivalent to UK standards"
+          ]
+      },
+      {
+          "ruleCode": "EL6",
+          "ruleDescription": "Approved Language Tests",
+          "requirements": [
+              "Valid test from approved provider",
+              "B1 CEFR or higher",
+              "Test taken within 2 years of application"
+          ]
+      },
+      {
+          "ruleCode": "EL7",
+          "ruleDescription": "GCSE/A-Level Qualifications",
+          "requirements": [
+              "Ofqual-regulated awarding body",
+              "UK school education started before 18",
+              "English language/literature qualification"
+          ]
+      }
+  ]
+}

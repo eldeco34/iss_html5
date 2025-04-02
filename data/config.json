@@ -1,0 +1,22 @@
+{
+    "appendices": [
+        {
+            "id": "english-language",
+            "name": "English Language Requirements",
+            "category": "Language",
+            "configPath": "english_language/config.json"
+        },
+        {
+            "id": "children",
+            "name": "Appendix Children",
+            "category": "Family",
+            "configPath": "children/config.json"
+        },
+        {
+            "id": "new_rules",
+            "name": "New Rule Category",
+            "category": "Immigration",
+            "configPath": "new_rules/config.json"
+        }
+    ]
+}

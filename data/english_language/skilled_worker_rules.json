@@ -1,0 +1,15 @@
+{
+  "sectionTitle": "Skilled Worker Provisions",
+  "sectionDescription": "Special provisions for Skilled Worker visa applicants",
+  "rules": [
+      {
+          "ruleCode": "EL9.1",
+          "ruleDescription": "Medical Professionals Exemption",
+          "requirements": [
+              "Registration with relevant professional body",
+              "Approved English assessment passed",
+              "Valid for: Doctors, Dentists, Nurses, Midwives, Veterinarians"
+          ]
+      }
+  ]
+}

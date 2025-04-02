@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Immigration Rules Hierarchical Tree</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        .node circle {
+            fill: #3498db;
+            stroke: #2980b9;
+            stroke-width: 3px;
+        }
+        .node text {
+            font: 12px sans-serif;
+        }
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <svg width="960" height="600"></svg>
+    <script>
+        // Hierarchical data structure for immigration rules
+        const immigrationRulesData = {
+            name: "Immigration Rules",
+            children: [
+                {
+                    name: "Settlement Route",
+                    children: [
+                        {
+                            name: "Exemptions",
+                            children: [
+                                { name: "Age Exemption (65+)" },
+                                { name: "Disability Exemption" }
+                            ]
+                        },
+                        {
+                            name: "Language Requirements",
+                            children: [
+                                { name: "Academic Qualification" },
+                                { name: "English Language Test" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Student Route",
+                    children: [
+                        { name: "Higher Education Sponsorship" },
+                        { name: "Language Proficiency" }
+                    ]
+                },
+                {
+                    name: "Skilled Worker Route",
+                    children: [
+                        { name: "Professional Assessment" },
+                        { name: "English Proficiency" }
+                    ]
+                }
+            ]
+        };
+
+        // Set up SVG
+        const svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height"),
+            g = svg.append("g")
+                .attr("transform", `translate(${width/2},50)`);
+
+        // Create tree layout
+        const tree = d3.tree()
+            .size([width - 400, height - 200]);
+
+        // Root node creation
+        const root = d3.hierarchy(immigrationRulesData);
+
+        // Generate tree
+        tree(root);
+
+        // Create links
+        const link = g.selectAll(".link")
+            .data(root.links())
+            .enter().append("path")
+            .attr("class", "link")
+            .attr("d", d3.linkVertical()
+                .x(d => d.x)
+                .y(d => d.y)
+            );
+
+        // Create nodes
+        const node = g.selectAll(".node")
+            .data(root.descendants())
+            .enter().append("g")
+            .attr("class", d => "node" + (d.children ? " node--internal" : " node--leaf"))
+            .attr("transform", d => `translate(${d.x},${d.y})`);
+
+        // Add circles to nodes
+        node.append("circle")
+            .attr("r", 10);
+
+        // Add labels to nodes
+        node.append("text")
+            .attr("dy", 3)
+            .attr("x", d => d.children ? -13 : 13)
+            .style("text-anchor", d => d.children ? "end" : "start")
+            .text(d => d.data.name);
+    </script>
+</body>
+</html>

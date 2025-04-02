@@ -1,0 +1,14 @@
+{
+    "sectionTitle": "Parental Consent Requirement",
+    "sectionDescription": "Authorization for under-18 applicants",
+    "rules": [
+        {
+            "ruleCode": "CHI 5.1",
+            "ruleDescription": "Consent documentation",
+            "requirements": [
+                "Written consent from both parents",
+                "Legal guardian authorization"
+            ]
+        }
+    ]
+}

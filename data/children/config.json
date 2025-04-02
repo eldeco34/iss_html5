@@ -1,0 +1,10 @@
+{
+    "endpoints": [
+        "age_requirements.json",
+        "care_requirement.json",
+        "independent_life_requirement.json",
+        "relationship_requirement_entry_clearance.json",
+        "relationship_requirement_settlement.json",
+        "parental_consent_requirement.json"
+    ]
+}

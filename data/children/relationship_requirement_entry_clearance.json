@@ -1,0 +1,14 @@
+{
+    "sectionTitle": "Relationship Requirement (Entry Clearance)",
+    "sectionDescription": "Relationship Requirement",
+    "rules": [
+        {
+            "ruleCode": "CHI 3.1",
+            "ruleDescription": "Parental status requirements",
+            "requirements": [
+                "Parent must have valid entry clearance",
+                "Concurrent application with parent"
+            ]
+        }
+    ]
+}

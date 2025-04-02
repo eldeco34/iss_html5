@@ -1,0 +1,14 @@
+{
+    "sectionTitle": "Section Name 2",
+    "sectionDescription": "Description of rules 2",
+    "rules": [
+        {
+            "ruleCode": "NR1.2",
+            "ruleDescription": "Rule Description 2",
+            "requirements": [
+                "Requirement 21",
+                "Requirement 22"
+            ]
+        }
+    ]
+}

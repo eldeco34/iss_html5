@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #34495e;
+    --mobile-breakpoint: 768px;
+    --desktop-breakpoint: 1024px;
+    --base-font-size: 1rem;
+    --heading-font-size: 2rem;
+}

@@ -1,0 +1,8 @@
+{
+    "endpoints": [
+        "exemptions.json",
+        "methods.json",
+        "skilled_worker_rules.json",
+        "student_rules.json"
+    ]
+}

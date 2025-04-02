@@ -1,0 +1,14 @@
+{
+    "sectionTitle": "Relationship Requirement (Settlement)",
+    "sectionDescription": "Rules for permanent residency",
+    "rules": [
+        {
+            "ruleCode": "CHI 4.1",
+            "ruleDescription": "Settlement eligibility criteria",
+            "requirements": [
+                "Parent must be settled/British citizen",
+                "Prior permission alignment"
+            ]
+        }
+    ]
+}

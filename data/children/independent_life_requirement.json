@@ -1,0 +1,14 @@
+{
+    "sectionTitle": "Independent Life Requirement",
+    "sectionDescription": "Restrictions on independent living",
+    "rules": [
+        {
+            "ruleCode": "CHI 1A.1",
+            "ruleDescription": "Prohibition of independent life",
+            "requirements": [
+                "Must reside with parent/guardian",
+                "No self-sufficient living arrangements"
+            ]
+        }
+    ]
+}
